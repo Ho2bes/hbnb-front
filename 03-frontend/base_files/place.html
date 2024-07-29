@@ -8,28 +8,66 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <a href="login.html" class="login-button" id="login-link">Login</a>
+        <img src="logo.png" alt="Application Logo" class="logo">
+        <nav>
+            <a href="index.html" class="login-button">Home</a>
+        </nav>
     </header>
-
     <main>
-        <section id="place-details">
-            <!-- Place details will be populated here -->
+        <section class="place-details">
+            <img src="large-image.jpg" alt="Large Place Image" class="place-image-large">
+            <div class="place-info">
+                <h2>Place Name</h2>
+                <p>Host: Host Name</p>
+                <p>Price: $100 per night</p>
+                <p>Location: City, Country</p>
+                <p>Description: Detailed description of the place.</p>
+                <p>Amenities: List of amenities.</p>
+            </div>
         </section>
-
-        <section id="add-review">
-            <h2>Add Review</h2>
-            <form id="review-form">
-                <textarea name="review" id="review" rows="4" required></textarea>
-                <button type="submit">Submit Review</button>
+        <section class="reviews">
+            <h3>Reviews</h3>
+            <div class="review-card">
+                <p>Comment: Great place!</p>
+                <p>User: User Name</p>
+                <p>Rating: 5/5</p>
+            </div>
+            <!-- Additional review cards will be populated dynamically -->
+        </section>
+        <section class="add-review">
+            <!-- If user is logged in, show form to add a new review -->
+            <h2>Add a Review</h2>
+            <form class="review-form">
+                <label for="review-text">Review:</label>
+                <textarea id="review-text" name="review-text" required></textarea>
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
+                <button type="submit">Submit</button>
             </form>
+            <!-- If user is not logged in, show button to navigate to add_review.html -->
+            <button class="details-button" id="login-review-button" style="display:none;">Add a Review</button>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 All rights reserved.</p>
+        <p>All rights reserved.</p>
     </footer>
+    <script>
+        // Simulate user login status
+        var userLoggedIn = false; // Change this to true if the user is logged in
 
-    <script src="scripts.js"></script>
+        if (userLoggedIn) {
+            document.querySelector('.review-form').style.display = 'block';
+            document.getElementById('login-review-button').style.display = 'none';
+        } else {
+            document.querySelector('.review-form').style.display = 'none';
+            document.getElementById('login-review-button').style.display = 'block';
+        }
+    </script>
 </body>
 </html>

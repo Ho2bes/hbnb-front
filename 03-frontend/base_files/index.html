@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of Places</title>
+    <title>Places</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav>
-            <a href="login.html" id="login-link">Login</a>
-        </nav>
+        <img src="logo.png" alt="Logo" class="logo">
+        <a href="login.html" class="login-button" id="login-link">Login</a>
     </header>
+
     <main>
-        <section id="filter">
-            <label for="country-filter">Filter by Country:</label>
-            <select id="country-filter">
-                <!-- Options will be populated dynamically -->
-            </select>
-        </section>
+        <h1>Places</h1>
+        <label for="country-filter">Filter by country:</label>
+        <select id="country-filter">
+            <option value="">All</option>
+            <!-- Add options dynamically if needed -->
+        </select>
+
         <section id="places-list">
-            <!-- List of places will be populated dynamically -->
+            <!-- Places will be populated here -->
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 All rights reserved.</p>
+    </footer>
+
     <script src="scripts.js"></script>
 </body>
 </html>

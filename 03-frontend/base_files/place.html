@@ -3,71 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Details</title>
+    <title>Beautiful Beach House</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Application Logo" class="logo">
-        <nav>
-            <a href="index.html" class="login-button">Home</a>
-        </nav>
+        <img src="logo.png" alt="Logo" class="logo">
+        <a href="login.html" class="login-button">Login</a>
     </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+    </nav>
     <main>
-        <section class="place-details">
-            <img src="large-image.jpg" alt="Large Place Image" class="place-image-large">
-            <div class="place-info">
-                <h2>Place Name</h2>
-                <p>Host: Host Name</p>
-                <p>Price: $100 per night</p>
-                <p>Location: City, Country</p>
-                <p>Description: Detailed description of the place.</p>
-                <p>Amenities: List of amenities.</p>
-            </div>
-        </section>
+        <h1>Beautiful Beach House</h1>
+        <div class="place-details">
+            <p><strong>Host:</strong> John Doe</p>
+            <p><strong>Price per night:</strong> $150</p>
+            <p><strong>Location:</strong> Los Angeles, United States</p>
+            <p><strong>Description:</strong> A beautiful beach house with amazing views...</p>
+            <p><strong>Amenities:</strong> WiFi, Pool, Air Conditioning</p>
+        </div>
         <section class="reviews">
-            <h3>Reviews</h3>
+            <h2>Reviews</h2>
             <div class="review-card">
-                <p>Comment: Great place!</p>
-                <p>User: User Name</p>
-                <p>Rating: 5/5</p>
+                <p><strong>Jane Smith:</strong></p>
+                <p>Great place to stay!</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
             </div>
-            <!-- Additional review cards will be populated dynamically -->
+            <div class="review-card">
+                <p><strong>Robert Brown:</strong></p>
+                <p>Amazing location and very comfortable.</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+            </div>
         </section>
         <section class="add-review">
-            <!-- If user is logged in, show form to add a new review -->
             <h2>Add a Review</h2>
-            <form class="review-form">
-                <label for="review-text">Review:</label>
-                <textarea id="review-text" name="review-text" required></textarea>
+            <form>
+                <label for="comment">Your Review:</label>
+                <textarea id="comment" name="comment" required></textarea>
                 <label for="rating">Rating:</label>
                 <select id="rating" name="rating" required>
-                    <option value="5">5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
                 </select>
-                <button type="submit">Submit</button>
+                <button type="submit" class="submit-review">Submit Review</button>
             </form>
-            <!-- If user is not logged in, show button to navigate to add_review.html -->
-            <button class="details-button" id="login-review-button" style="display:none;">Add a Review</button>
         </section>
     </main>
     <footer>
-        <p>All rights reserved.</p>
+        <p>© 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
-    <script>
-        // Simulate user login status
-        var userLoggedIn = false; // Change this to true if the user is logged in
-
-        if (userLoggedIn) {
-            document.querySelector('.review-form').style.display = 'block';
-            document.getElementById('login-review-button').style.display = 'none';
-        } else {
-            document.querySelector('.review-form').style.display = 'none';
-            document.getElementById('login-review-button').style.display = 'block';
-        }
-    </script>
 </body>
 </html>

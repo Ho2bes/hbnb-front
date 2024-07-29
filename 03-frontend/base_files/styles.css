@@ -2,91 +2,198 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f8f8;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
 }
 
 .logo {
-    height: 50px;
+    height: 40px;
 }
 
 .login-button {
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f4f4f4;
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #fc0000;
 }
 
 main {
     padding: 20px;
 }
 
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
+/* Styles spécifiques pour index.html */
+.index-main {
+    text-align: center;
 }
 
-form label {
-    display: block;
-    margin-bottom: 8px;
+.index-main h1 {
+    color: #adacab;
 }
 
-form input,
-form textarea {
-    width: 95%;
-    padding: 10px;
+.filter {
     margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
-form button {
-	width: 100%;
+.filter label, .filter select {
+    font-size: 1.2em;
+}
+
+.places-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.place-card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.place-card h2 {
+    margin-top: 0;
+    color: #000;
+}
+
+.details-button {
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fc0000;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#places-list .place-card,
+.details-button:hover {
+    background-color: #adacab;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #000000;
+    color: white;
+    width: 100%;
+    margin-top: 60px; /* Augmente l'espace avant le footer */
+}
+
+/* Styles pour place.html */
+h1 {
+    text-align: center;
+    color: #adacab;
+}
+
+.place-details {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.place-details p {
+    margin: 10px 0;
+}
+
+.reviews {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.reviews h2 {
+    margin-top: 0;
+}
+
 .review-card {
-    margin: 20px;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review-card:first-of-its-kind {
+    border-top: none;
+}
+
+.add-review {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px; /* Augmente l'espace avant le footer */
+}
+
+.add-review h2 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments horizontalement */
+}
+
+label {
+    margin: 10px 0 5px;
+    width: 100%; /* Assure que les labels prennent toute la largeur disponible */
+}
+
+textarea, select, input, .submit-review {
     padding: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
+    border-radius: 5px;
+    width: 100%; /* Fixe la largeur à 100% du parent */
+    max-width: 500px; /* Limite la largeur maximale pour uniformité */
 }
 
-.place-card img,
-.place-image-large {
-    max-width: 100%;
-    border-radius: 10px;
+.submit-review {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#place-details {
-    margin: 20px 0;
-}
-
-#add-review {
-    display: none;
-    margin-top: 20px;
+/* Ajout de la règle :hover pour le bouton submit-review */
+.submit-review:hover {
+    background-color: #fc0000;
 }

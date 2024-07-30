@@ -18,7 +18,23 @@ header {
     height: 40px;
 }
 
-.login-button, .submit-review, .details-button {
+.login-button {
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9em;  /* Taille de la police */
+    margin-left: auto;  /* Place le bouton à droite */
+}
+
+.login-button:hover {
+    background-color: #fc0000;
+}
+
+.submit-review, .details-button {
     padding: 10px 20px;
     background-color: rgb(0, 0, 0);
     color: #ffffff;
@@ -28,7 +44,7 @@ header {
     cursor: pointer;
 }
 
-.login-button:hover, .submit-review:hover, .details-button:hover {
+.submit-review:hover, .details-button:hover {
     background-color: #fc0000;
 }
 
@@ -89,6 +105,27 @@ main {
 .place-card h2 {
     margin-top: 0;
     color: #000;
+}
+
+.place-image {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour uniformité */
+    object-fit: cover; /* Les images s'ajustent au conteneur tout en gardant leur proportion */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.details-button {
+    padding: 10px 20px;
+    background-color: #fc0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.details-button:hover {
+    background-color: #adacab;
 }
 
 footer {
@@ -178,7 +215,7 @@ textarea, select, input, .submit-review, .login-button {
     max-width: 500px; /* Limite la largeur maximale pour uniformité */
 }
 
-.submit-review, .login-button {
+.submit-review {
     background-color: #000000;
     color: white;
     border: none;
@@ -186,8 +223,8 @@ textarea, select, input, .submit-review, .login-button {
     cursor: pointer;
 }
 
-/* Ajout de la règle :hover pour le bouton submit-review et login-button */
-.submit-review:hover, .login-button:hover {
+/* Ajout de la règle :hover pour le bouton submit-review */
+.submit-review:hover {
     background-color: #fc0000;
 }
 

@@ -37,7 +37,10 @@
                 <p><strong>Rating:</strong> ★★★★★</p>
             </div>
         </section>
-        <section class="add-review" id="add-review-section">
+        <section>
+            <button id="add-review-button" class="add-review-button">Add Review</button>
+        </section>
+        <section class="add-review" id="add-review-section" style="display:none;">
             <h2>Add a Review</h2>
             <form>
                 <label for="comment">Your Review:</label>
@@ -60,12 +63,28 @@
     </footer>
     <script>
         // Simulate user authentication status
-        const isAuthenticated = false; // Change to true if the user is authenticated
+        const isAuthenticated = true; // Change to false if the user is not authenticated
 
-        // Hide the add review section if the user is not authenticated
-        if (!isAuthenticated) {
-            document.getElementById('add-review-section').style.display = 'none';
+        // Display the add review button if the user is authenticated
+        const addReviewButton = document.getElementById('add-review-button');
+        const addReviewSection = document.getElementById('add-review-section');
+
+        if (isAuthenticated) {
+            addReviewButton.style.display = 'block';
+        } else {
+            addReviewButton.style.display = 'none';
         }
+
+        // Redirect to the add review page or show the form directly
+        addReviewButton.addEventListener('click', () => {
+            if (isAuthenticated) {
+                window.location.href = 'add_review.html';
+                // Or if you want to show the form directly within the place page, use the following line instead:
+                // addReviewSection.style.display = 'block';
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
     </script>
 </body>
 </html>

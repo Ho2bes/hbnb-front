@@ -18,13 +18,18 @@ header {
     height: 40px;
 }
 
-.login-button {
+.login-button, .submit-review, .details-button {
     padding: 10px 20px;
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.login-button:hover, .submit-review:hover, .details-button:hover {
+    background-color: #fc0000;
 }
 
 nav {
@@ -86,19 +91,6 @@ main {
     color: #000;
 }
 
-.details-button {
-    padding: 10px 20px;
-    background-color: #fc0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.details-button:hover {
-    background-color: #adacab;
-}
-
 footer {
     text-align: center;
     padding: 10px 0;
@@ -151,17 +143,18 @@ h1 {
     border-top: none;
 }
 
-.add-review {
+.add-review, .login-encart {
     background-color: white;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
+    max-width: 500px; /* Limite la largeur maximale pour uniformité */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 60px; /* Augmente l'espace avant le footer */
 }
 
-.add-review h2 {
+.add-review h2, .login-encart h2 {
     margin-top: 0;
 }
 
@@ -176,7 +169,7 @@ label {
     width: 100%; /* Assure que les labels prennent toute la largeur disponible */
 }
 
-textarea, select, input, .submit-review {
+textarea, select, input, .submit-review, .login-button {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -185,7 +178,7 @@ textarea, select, input, .submit-review {
     max-width: 500px; /* Limite la largeur maximale pour uniformité */
 }
 
-.submit-review {
+.submit-review, .login-button {
     background-color: #000000;
     color: white;
     border: none;
@@ -193,7 +186,16 @@ textarea, select, input, .submit-review {
     cursor: pointer;
 }
 
-/* Ajout de la règle :hover pour le bouton submit-review */
-.submit-review:hover {
+/* Ajout de la règle :hover pour le bouton submit-review et login-button */
+.submit-review:hover, .login-button:hover {
     background-color: #fc0000;
+}
+
+/* Centrage du contenu pour les pages add_review et login */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 120px); /* Hauteur de la fenêtre moins les paddings */
 }

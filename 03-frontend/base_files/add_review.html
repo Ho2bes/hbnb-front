@@ -8,24 +8,42 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo" class="logo">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
         <a href="login.html" class="login-button">Login</a>
     </header>
     <nav>
         <a href="index.html">Home</a>
         <a href="login.html">Login</a>
     </nav>
-    <main>
-        <form>
-            <label for="comment">Review :</label>
-            <textarea id="comment" name="comment" required></textarea>
-            <label for="rating">Rate :</label>
-            <input type="number" id="rating" name="rating" min="1" max="5" required>
-            <button type="submit" class="add-review">Submit</button>
-        </form>
+    <main class="center-content">
+        <div class="add-review">
+            <h2>Add a Review</h2>
+            <form>
+                <label for="comment">Your Review:</label>
+                <textarea id="comment" name="comment" required></textarea>
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <button type="submit" class="submit-review">Submit Review</button>
+            </form>
+        </div>
     </main>
     <footer>
         <p>© 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
+    <script>
+        // Simulate user authentication status
+        const isAuthenticated = false; // Change to true if the user is authenticated
+
+        // Redirect to login page if the user is not authenticated
+        if (!isAuthenticated) {
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
 </html>

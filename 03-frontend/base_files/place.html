@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo" class="logo">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
         <a href="login.html" class="login-button">Login</a>
     </header>
     <nav>
@@ -37,7 +37,7 @@
                 <p><strong>Rating:</strong> ★★★★★</p>
             </div>
         </section>
-        <section class="add-review">
+        <section class="add-review" id="add-review-section">
             <h2>Add a Review</h2>
             <form>
                 <label for="comment">Your Review:</label>
@@ -57,5 +57,14 @@
     <footer>
         <p>© 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
+    <script>
+        // Simulate user authentication status
+        const isAuthenticated = false; // Change to true if the user is authenticated
+
+        // Hide the add review section if the user is not authenticated
+        if (!isAuthenticated) {
+            document.getElementById('add-review-section').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loginUser(email, password) {
+  const errorMessage = document.getElementById('error-message');
   try {
-      const response = await fetch('http://127.0.0.1:5000/login', {
+      const response = await fetch('http://localhost:5000/login', { // Assurez-vous que c'est l'URL correcte
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -22,30 +23,17 @@ async function loginUser(email, password) {
           body: JSON.stringify({ email, password })
       });
 
-      if (response.ok) {
-          const data = await response.json();
-          document.cookie = `token=${data.access_token}; path=/`;
-          window.location.href = 'index.html';
-      } else {
-          handleError(response);
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.msg || response.statusText);
       }
+
+      const data = await response.json();
+      document.cookie = `token=${data.access_token}; path=/`;
+      window.location.href = 'index.html';
+
   } catch (error) {
-      console.error('Error:', error);
-      displayError('An error occurred. Please try again.');
-  }
-}
-
-function handleError(response) {
-  if (response.status === 401) {
-      displayError('Invalid email or password. Please try again.');
-  } else {
-      displayError('Login failed. Please try again.');
-  }
-}
-
-function displayError(message) {
-  const errorMessage = document.getElementById('error-message');
-  if (errorMessage) {
-      errorMessage.textContent = message;
+      errorMessage.textContent = `Login failed: ${error.message}`;
+      console.error('Error during login:', error);
   }
 }

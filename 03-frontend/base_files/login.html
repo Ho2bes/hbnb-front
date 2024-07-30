@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        <a href="login.html" class="login-button">Login</a>
     </header>
     <nav>
         <a href="index.html">Home</a>
         <a href="login.html">Login</a>
     </nav>
-    <main class="center-content">
+    <main>
         <div class="login-encart">
             <h2>Login</h2>
-            <form>
-                <label for="email">Mail :</label>
+            <form id="login-form">
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-                <label for="password">Password :</label>
+                <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <button type="submit" class="login-button">Login</button>
             </form>
+            <div id="error-message" style="color: red;"></div>
         </div>
     </main>
     <footer>
         <p>© 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -4,11 +4,10 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Permet toutes les origines
 app.config.from_object('config.Config')
 
 jwt = JWTManager(app)
-CORS(app)
 
 with open('data/users.json') as f:
     users = json.load(f)
@@ -17,6 +16,13 @@ with open('data/places.json') as f:
     places = json.load(f)
 
 new_reviews = []
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
+    return response
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -95,6 +101,17 @@ def add_review(place_id):
 
     new_reviews.append(new_review)
     return jsonify({"msg": "Review added"}), 201
+
+@app.route('/users/<access_token>', methods=['GET'])
+@jwt_required()
+def get_user(access_token):
+    current_user_id = get_jwt_identity()
+    user = next((u for u in users if u['id'] == current_user_id), None)
+
+    if not user:
+        return jsonify({"msg": "User not found"}), 404
+
+    return jsonify(user)
 
 if __name__ == '__main__':
     app.run(debug=True)

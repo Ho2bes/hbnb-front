@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let places = []
 
         // Récupère les lieux avec le token dans l'en-tête Authorization
-        async function fetchPlaces(token) {
+        async function fetchPlaces() {
             const response = await fetch('http://127.0.0.1:5000/places', {
                 method: 'GET',
                 headers: {
@@ -73,10 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const placesList = document.getElementById('places-list');
             placesList.innerHTML = '';
 
-            places.forEach(place => {
+            places.forEach((place, index) => {
                 const placeCard = document.createElement('div');
                 placeCard.className = 'place-card';
+
+                // Utiliser une image locale pour chaque hébergement
+                const imagePath = `images/image${index + 1}.jpg`;
+
                 placeCard.innerHTML = `
+                <img src="${imagePath}" alt="${place.description}" class="place-image">
                 <h2>${place.description}</h2>
                 <p>Price per night: $ ${place.price_per_night}</p>
                 <p>Location: ${place.city_name}, ${place.country_name}</p>

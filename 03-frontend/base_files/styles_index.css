@@ -105,9 +105,11 @@ button:hover {
     background-color: #fd0000; /* Change this color as needed */
 }
 .place-image{
-    width: 100%; /* ou tout autre pourcentage désiré */
-    height: auto; /* Conserve le ratio de l'image */
-    border-radius: 10px; /* Optionnel, pour des coins arrondis */
+	width: 100%; /* Assure que l'image occupe toute la largeur de la carte */
+    height: 200px; /* Fixe la hauteur de l'image pour assurer l'uniformité */
+    object-fit: cover; /* S'assure que l'image couvre le cadre sans distorsion */
+    border-radius: 10px; /* Coins arrondis pour une meilleure apparence */
+    margin-bottom: 15px; /* Espacement entre l'image et le texte suivant */
 }
 
 footer {

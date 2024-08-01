@@ -4,10 +4,11 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-CORS(app)  # Permet toutes les origines
+CORS(app)
 app.config.from_object('config.Config')
 
 jwt = JWTManager(app)
+
 
 with open('data/users.json') as f:
     users = json.load(f)
@@ -17,28 +18,28 @@ with open('data/places.json') as f:
 
 new_reviews = []
 
-@app.after_request
-def add_cors_headers(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
-    return response
-
 @app.route('/login', methods=['POST'])
 def login():
+    print("Login endpoint hit")
     email = request.json.get('email')
     password = request.json.get('password')
+
+    print(f"Received email: {email}")
+    print(f"Received password: {password}")
 
     user = next((u for u in users if u['email'] == email and u['password'] == password), None)
 
     if not user:
+        print(f"User not found or invalid password for: {email}")
         return jsonify({"msg": "Invalid credentials"}), 401
 
     access_token = create_access_token(identity=user['id'])
+    print(f"Generated access token: {access_token}")
     return jsonify(access_token=access_token)
 
 @app.route('/places', methods=['GET'])
 def get_places():
+    print("Places endpoint hit")
     response = [
         {
             "id": place['id'],
@@ -57,6 +58,7 @@ def get_places():
 
 @app.route('/places/<place_id>', methods=['GET'])
 def get_place(place_id):
+    print(f"Place endpoint hit for ID: {place_id}")
     place = next((p for p in places if p['id'] == place_id), None)
 
     if not place:
@@ -85,6 +87,7 @@ def get_place(place_id):
 @app.route('/places/<place_id>/reviews', methods=['POST'])
 @jwt_required()
 def add_review(place_id):
+    print(f"Add review endpoint hit for place ID: {place_id}")
     current_user_id = get_jwt_identity()
     user = next((u for u in users if u['id'] == current_user_id), None)
 
@@ -101,17 +104,6 @@ def add_review(place_id):
 
     new_reviews.append(new_review)
     return jsonify({"msg": "Review added"}), 201
-
-@app.route('/users/<access_token>', methods=['GET'])
-@jwt_required()
-def get_user(access_token):
-    current_user_id = get_jwt_identity()
-    user = next((u for u in users if u['id'] == current_user_id), None)
-
-    if not user:
-        return jsonify({"msg": "User not found"}), 404
-
-    return jsonify(user)
 
 if __name__ == '__main__':
     app.run(debug=True)

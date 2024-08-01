@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ddd;
+}
+.logo {
+    height: 50px;
+}
+.login-button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #f4f4f4;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.login-button:hover {
+    background-color: #ff0000;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    color: #ffffff; /* Set footer text color to white */
+}
+main {
+    padding: 20px;
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ddd;
+}
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+form input,
+form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+form button {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #ff0000;
+}
+#places-list .place-card,
+.review-card {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+.place-card img,
+.place-image-large {
+    max-width: 100%;
+    border-radius: 10px;
+}
+#place-details {
+    margin: 20px 0;
+}
+#add-review {
+    display: none;
+    margin-top: 20px;
+}

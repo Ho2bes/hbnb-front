@@ -3,88 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Beach House</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Place Details</title>
+    <link rel="stylesheet" href="styles_place.css">
+    <link rel="icon" href="icon.png">
+    <script src="scripts.js"></script>
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
-        <a href="login.html" class="login-button">Login</a>
+            <a href="index.html">
+                <img src="logo.png" alt="HBnB logo" class="logo">
+            </a>
+        <a href="login.html" class="login-button" id="login-link">Login</a>
     </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-    </nav>
     <main>
-        <h1>Beautiful Beach House</h1>
-        <div class="place-details">
-            <p><strong>Host:</strong> John Doe</p>
-            <p><strong>Price per night:</strong> $150</p>
-            <p><strong>Location:</strong> Los Angeles, United States</p>
-            <p><strong>Description:</strong> A beautiful beach house with amazing views...</p>
-            <p><strong>Amenities:</strong> WiFi, Pool, Air Conditioning</p>
-        </div>
-        <section class="reviews">
-            <h2>Reviews</h2>
-            <div class="review-card">
-                <p><strong>Jane Smith:</strong></p>
-                <p>Great place to stay!</p>
-                <p><strong>Rating:</strong> ★★★★★</p>
-            </div>
-            <div class="review-card">
-                <p><strong>Robert Brown:</strong></p>
-                <p>Amazing location and very comfortable.</p>
-                <p><strong>Rating:</strong> ★★★★★</p>
-            </div>
+        <section id="place-details">
+            <h2 class="visually-hidden">Place Details</h2>
+            <div class="place-info"></div>
         </section>
-        <section>
-            <button id="add-review-button" class="add-review-button">Add Review</button>
+        <section id="reviews">
+            <h2 class="visually-hidden"></h2>
+            <div id="title"></div>
+            <div id="review-card"></div>
         </section>
-        <section class="add-review" id="add-review-section" style="display:none;">
-            <h2>Add a Review</h2>
-            <form>
-                <label for="comment">Your Review:</label>
-                <textarea id="comment" name="comment" required></textarea>
-                <label for="rating">Rating:</label>
-                <select id="rating" name="rating" required>
-                    <option value="" disabled selected>Select your rating</option>
-                    <option value="1">1 Star</option>
-                    <option value="2">2 Stars</option>
-                    <option value="3">3 Stars</option>
-                    <option value="4">4 Stars</option>
-                    <option value="5">5 Stars</option>
-                </select>
-                <button type="submit" class="submit-review">Submit Review</button>
-            </form>
+        <section id="add-review" class="add-review">
+            <h2 class="visually-hidden">Add a Review</h2>
+            <button class="add-review-button" id="add-review-button">Add Review</button>
         </section>
     </main>
     <footer>
-        <p>© 2024 HBnB Evolution. All rights reserved.</p>
+        <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
-    <script>
-        // Simulate user authentication status
-        const isAuthenticated = true; // Change to false if the user is not authenticated
-
-        // Display the add review button if the user is authenticated
-        const addReviewButton = document.getElementById('add-review-button');
-        const addReviewSection = document.getElementById('add-review-section');
-
-        if (isAuthenticated) {
-            addReviewButton.style.display = 'block';
-        } else {
-            addReviewButton.style.display = 'none';
-        }
-
-        // Redirect to the add review page or show the form directly
-        addReviewButton.addEventListener('click', () => {
-            if (isAuthenticated) {
-                window.location.href = 'add_review.html';
-                // Or if you want to show the form directly within the place page, use the following line instead:
-                // addReviewSection.style.display = 'block';
-            } else {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
 </body>
 </html>

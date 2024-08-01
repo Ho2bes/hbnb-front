@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Places</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <title>Index</title>
+    <link rel="stylesheet" href="styles_index.css">
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
-        <a href="login.html" id="login-link" class="login-button">Login</a>
+        <a href="index.html">
+            <img src="logo.png" alt="Application Logo" class="logo">
+        </a>
+        <a href="login.html" class="login-button" id="login-link">Login</a>
     </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-    </nav>
-    <main class="index-main">
-        <h1>Available Places</h1>
-        <div class="filter">
+    <main>
+        <h1 class="title">Available Places</h1>
+        <div class="filter-container">
             <label for="country-filter">Filter by country:</label>
-            <select id="country-filter" name="country">
+            <select id="country-filter">
                 <option value="all">All</option>
                 <option value="United States">United States</option>
                 <option value="Canada">Canada</option>
-                <!-- Add other country options here -->
             </select>
         </div>
         <section id="places-list"></section>
     </main>
     <footer>
-        <p>© 2024 HBnB Evolution. All rights reserved.</p>
+        <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

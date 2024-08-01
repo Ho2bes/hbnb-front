@@ -1,51 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Review</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Add Review</title>
+    <link rel="stylesheet" href="styles_add_review.css">
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
-        <a href="login.html" class="login-button">Login</a>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-    </nav>
-    <main class="center-content">
-        <div class="add-review">
+    <main>
+        <form id="review-form" class="add-review-form">
             <h2>Add a Review</h2>
-            <form>
-                <label for="comment">Your Review:</label>
-                <textarea id="comment" name="comment" required></textarea>
-                <label for="rating">Rating:</label>
-                <select id="rating" name="rating" required>
-                    <option value="" disabled selected>Select your rating</option>
-                    <option value="1">1 Star</option>
-                    <option value="2">2 Stars</option>
-                    <option value="3">3 Stars</option>
-                    <option value="4">4 Stars</option>
-                    <option value="5">5 Stars</option>
-                </select>
-                <button type="submit" class="submit-review">Submit</button>
-            </form>
-        </div>
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" readonly>
+
+            <label for="review">Review:</label>
+            <textarea id="review" name="review" required></textarea>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★</option>
+                <option value="3">★★★</option>
+                <option value="2">★★</option>
+                <option value="1">★</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
     </main>
     <footer>
-        <p>© 2024 HBnB Evolution. All rights reserved.</p>
+        <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
-    <script>
-        // Simulate user authentication status
-        const isAuthenticated = false; // Change to true if the user is authenticated
-
-        // Redirect to login page if the user is not authenticated
-        if (!isAuthenticated) {
-            window.location.href = "login.html";
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ddd; /* Change this color as needed */
+}
+
+.logo {
+    width: 150px;
+}
+
+nav a, .login-button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #000000; /* Change this color as needed */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover, .login-button:hover {
+    background-color: #ff0000; /* Change this color as needed */
+}
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    background-color: #F4F4F4;
+    padding: 10px 0;
+}
+
+.nav-button {
+    color: white;
+    background-color: #791904;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #791904;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#country-filter {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#places-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.place-card {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #000000; /* Change this color as needed */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fd0000; /* Change this color as needed */
+}
+.place-image{
+    width: 100%; /* ou tout autre pourcentage désiré */
+    height: auto; /* Conserve le ratio de l'image */
+    border-radius: 10px; /* Optionnel, pour des coins arrondis */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000000; /* Change this color as needed */
+    color: rgb(255, 254, 254);
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}

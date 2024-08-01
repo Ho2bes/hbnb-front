@@ -19,7 +19,7 @@ header {
 
 .login-button {
     color: #F4F4F4;
-    background-color: #4CAF50;
+    background-color: #000000;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@ header {
 }
 
 .login-button:hover {
-    background-color: #a3f781;
+    background-color: #fe0000;
 }
 
 main {
@@ -85,6 +85,7 @@ h1, h2, h3 {
     width: 80%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: left;
+	padding-bottom: 20px;
 }
 
 .review-card {
@@ -175,4 +176,5 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+	margin-top: 60px;
 }

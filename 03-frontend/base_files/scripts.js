@@ -33,12 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Vérifie si l'utilisateur est authentifié
     function checkAuthentication() {
         const token = getCookie('token');
-        const loginLink = document.getElementById('login-link');
-        if (token) {
-            loginLink.style.display = 'none';
+        if (!token) {
+            window.location.href = 'index.html';
         }
+        return token;
     }
-    checkAuthentication();
 
     // Fonction pour récupérer les cookies
     function getCookie(name) {
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // All places part //
     if (document.getElementById('places-list')) {
-        let places = []
+        let places = [];
 
         // Récupère les lieux avec le token dans l'en-tête Authorization
         async function fetchPlaces() {
@@ -129,13 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get('image');
     }
 
-    // Charge le formulaire d'ajout de revue
+    // Load the add review form
     async function loadAddReview() {
         const response = await fetch('add_review.html');
         const html = await response.text();
         document.getElementById('add-review').innerHTML = html;
         const reviewForm = document.getElementById('review-form');
-        createReview(reviewForm);
+        setupReviewForm(reviewForm);
     }
 
     // Partie pour afficher les détails d'un lieu
@@ -228,8 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return stars;
     }
 
-    // Crée une nouvelle revue avec le token dans l'en-tête Authorization
-    function createReview(reviewForm) {
+    // Setup the review form and create a new review with the token in the Authorization header
+    function setupReviewForm(reviewForm) {
         if (reviewForm) {
             const placeId = getIdFromUrl();
             if (placeId) {
@@ -247,15 +246,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         body: JSON.stringify({ review: reviewText, rating: ratingValue, place_id: placeId })
                     });
 
-                    if (response.ok) {
-                        alert('Review submitted successfully!');
-                        reviewForm.reset();
-                        fetchPlaceDetails(placeId);
-                    } else {
-                        alert('Failed to submit review');
-                    }
+                    handleResponse(response, reviewForm, placeId);
                 });
             }
+        }
+    }
+
+    // Handle the response from the review submission
+    function handleResponse(response, reviewForm, placeId) {
+        if (response.ok) {
+            alert('Review submitted successfully!');
+            reviewForm.reset();
+            fetchPlaceDetails(placeId);
+        } else {
+            alert('Failed to submit review');
         }
     }
 

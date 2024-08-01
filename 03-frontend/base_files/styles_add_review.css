@@ -9,7 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ddd; /* Changer la couleur selon vos préférences */
+    background-color: #ddd; /* Change the color as desired */
     padding: 10px 20px;
 }
 
@@ -22,13 +22,13 @@ nav a, .login-button {
     text-decoration: none;
     font-size: 16px;
     padding: 10px 20px;
-    background-color: #000000; /* Changer la couleur selon vos préférences */
+    background-color: #000000; /* Change the color as desired */
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 nav a:hover, .login-button:hover {
-    background-color: #f60505; /* Changer la couleur selon vos préférences */
+    background-color: #f60505; /* Change the color as desired */
 }
 
 main {
@@ -37,53 +37,65 @@ main {
 }
 
 h2 {
-    color: #ff0000; /* Changer la couleur selon vos préférences */
+    color: #ff0000; /* Change the color as desired */
+    margin-bottom: 20px;
 }
 
-.add-review-form {
+/* Common style for review cards and add review form */
+.review-card, .add-review-form {
     max-width: 600px;
-    margin: 10px auto;
-    padding: 40px;
+    margin: 20px auto;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5%;
-    background-color: #ddd;
+    border-radius: 5px; /* Consistent radius */
+    background-color: #fff; /* Consistent background color */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-.add-review-form label, .add-review-form input, .add-review-form textarea, .add-review-form button {
+/* Specific styles for add review form */
+.add-review-form label,
+.add-review-form input,
+.add-review-form textarea,
+.add-review-form select,
+.add-review-form button {
     display: block;
     width: 100%;
     margin: 10px 0;
 }
 
-.add-review-form input, .add-review-form textarea, .add-review-form select {
+.add-review-form input,
+.add-review-form textarea,
+.add-review-form select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f4f4f4; /* Light background for inputs */
 }
 
 .add-review-form textarea {
     height: 100px;
 }
 
-.add-review-form button {
-    background-color: #000000; /* Changer la couleur selon vos préférences */
-    color: white;
+/* Button style consistent with login button */
+.add-review-form button, .login-button {
+    background-color: #000; /* Button background */
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.add-review-form button:hover {
-    background-color: #ff0000; /* Changer la couleur selon vos préférences */
+.add-review-form button:hover, .login-button:hover {
+    background-color: #ff0000; /* Hover color */
 }
 
 footer {
-    background-color: #000000; /* Changer la couleur selon vos préférences */
-    color: rgb(255, 255, 255);
+    background-color: #000; /* Change the color as desired */
+    color: #fff;
     text-align: center;
     padding: 10px 0;
     position: fixed;

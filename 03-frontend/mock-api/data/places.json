@@ -9,6 +9,7 @@
         "city_name": "New York",
         "country_code": "US",
         "country_name": "United States",
+        "image_url": "base_files/beach-house.jpg"
         "number_of_rooms": 3,
         "number_of_bathrooms": 2,
         "max_guests": 6,

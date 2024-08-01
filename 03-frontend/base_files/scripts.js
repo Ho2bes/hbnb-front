@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             buttons.forEach(button => {
                 button.addEventListener('click', () => {
                     const targetId = button.getAttribute('data-place-id');
-                    window.location.href = `place.html?id=${targetId}`;
+                    const imageUrl = button.parentElement.querySelector('.place-image').src; // Récupère l'URL de l'image
+                    window.location.href = `place.html?id=${targetId}&image=${encodeURIComponent(imageUrl)}`;
                 });
             });
         }
@@ -123,6 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get('id');
     }
 
+    function getImageFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('image');
+    }
+
     // Charge le formulaire d'ajout de revue
     async function loadAddReview() {
         const response = await fetch('add_review.html');
@@ -135,8 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Partie pour afficher les détails d'un lieu
     if (document.getElementById('place-details')) {
         const placeId = getIdFromUrl();
+        const imageUrl = getImageFromUrl(); // Récupère l'URL de l'image
         if (placeId) {
             fetchPlaceDetails(placeId);
+            displayPlaceImage(imageUrl); // Affiche l'image
             loadAddReview();
         }
         if (!token) {
@@ -160,10 +168,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Fonction pour afficher l'image de l'hébergement
+    function displayPlaceImage(imageUrl) {
+        const imageContainer = document.createElement('div');
+        imageContainer.innerHTML = `<img src="${imageUrl}" alt="Place Image" class="place-image-large">`;
+        const placeDetails = document.getElementById('place-details');
+        placeDetails.insertBefore(imageContainer, placeDetails.firstChild); // Insère l'image avant les détails
+    }
+
     // Affiche les détails d'un lieu
     function displayPlaceDetails(place) {
         const placeDetails = document.getElementById('place-details');
-        placeDetails.innerHTML = `
+        placeDetails.innerHTML += `
             <h2 class="title">${place.description}</h2>
             <div class="place-detail-card">
             <ul>
